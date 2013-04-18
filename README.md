@@ -3,6 +3,8 @@ Gaufrette Browser
 
 [![Build Status](https://travis-ci.org/digitalkaoz/GaufretteBrowserBundle.png)](https://travis-ci.org/digitalkaoz/GaufretteBrowserBundle)
 
+[![knpbundles.com](http://knpbundles.com/digitalkaoz/GaufretteBrowserBundle/badge-short)](http://knpbundles.com/digitalkaoz/GaufretteBrowserBundle)
+
 This Bundle allows you to browse a Gaufrette Filesystem.
 It tries to wrap Doctrine ObjectRepositories and Entities around Gaufrette Files.
 
