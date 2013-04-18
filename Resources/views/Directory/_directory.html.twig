@@ -1,0 +1,11 @@
+<ul id="{{ dir.name }}">
+    {% for dir in dir.directories %}
+        <li>
+            <a href="{{ url('rs_gaufrette_browser_directory_show', {'slug': dir.slug}) }}">{{ dir.name }}</a>
+        </li>
+    {% endfor %}
+
+    {% for file in dir.files %}
+        <li><span class="file"><a href="{{ url('rs_gaufrette_browser_file_show', {'slug':file.key}) }}">{{ file.name }}</a></span></li>
+    {% endfor %}
+</ul>

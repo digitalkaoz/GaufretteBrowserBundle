@@ -1,0 +1,12 @@
+{% extends 'rsGaufretteBrowserBundle::layout.html.twig' %}
+
+{% block body %}
+    <ul>
+        {% for dir in folders %}
+            <li>
+                <a href="{{ url('rs_gaufrette_browser_directory_show', {'slug': dir.slug}) }}">{{ dir.name }}</a>
+                {% include 'rsGaufretteBrowserBundle:Directory:_directory.html.twig' with {'dir' : dir} %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

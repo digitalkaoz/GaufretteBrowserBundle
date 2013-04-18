@@ -1,0 +1,6 @@
+{
+    "file_pattern": "",
+    "filesystem": "foo",
+    "file_class": "rs\\GaufretteBrowserBundle\\Entity\\File",
+    "directory_class": "rs\\GaufretteBrowserBundle\\Entity\\Directory"
+}

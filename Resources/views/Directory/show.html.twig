@@ -1,0 +1,15 @@
+{% extends 'rsGaufretteBrowserBundle::layout.html.twig' %}
+
+{% block body %}
+    <h3>{{ folder.name }} {% if folder.parent %}<a href="{{ url('rs_gaufrette_browser_directory_show', {'slug':folder.parent.key}) }}">{{ folder.parent.key }}</a></h3>{% endif %}</h3>
+
+    <ul id="gaufrette_browser" class="filetree">
+        {% for dir in folder.directories %}
+            <li>{% include 'rsGaufretteBrowserBundle:Directory:_directory.html.twig' with {'dir' : dir} %}</li>
+        {% endfor %}
+
+        {% for file in folder.files %}
+            <li><span class="file"><a href="{{ url('rs_gaufrette_browser_file_show', {'slug':file.key}) }}">{{ file.name }}</a></span></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

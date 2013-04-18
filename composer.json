@@ -1,0 +1,36 @@
+{
+    "name": "digitalkaoz/gaufrette-browser-bundle",
+    "description": "This bundle provides an integration of the KnpMenu library",
+    "keywords": [
+        "gaufrette", "filesystem", "browser"
+    ],
+    "type": "symfony-bundle",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Robert Schönthal",
+            "homepage": "http://digitalkaoz.net"
+        }
+    ],
+
+    "require": {
+        "knplabs/knp-gaufrette-bundle": "~0.1"
+    },
+
+    "require-dev": {
+        "sensio/framework-extra-bundle": "~2.0"
+    },
+
+    "suggests": {
+        "sensio/framework-extra-bundle": " for using the param-converters for file and directory"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "rs\\GaufretteBrowserBundle": ""
+        }
+    },
+
+    "target-dir": "rs/GaufretteBrowserBundle"
+}

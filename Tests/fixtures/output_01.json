@@ -1,0 +1,6 @@
+{
+    "file_pattern": "\/\\.(jpg|gif|jpeg|png)$\/",
+    "filesystem": "default",
+    "file_class": "rs\\GaufretteBrowserBundle\\Entity\\File",
+    "directory_class": "rs\\GaufretteBrowserBundle\\Entity\\Directory"
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="rs_gaufrette_browser.repository.directory.class">rs\GaufretteBrowserBundle\Entity\DirectoryRepository</parameter>
+        <parameter key="rs_gaufrette_browser.repository.file.class">rs\GaufretteBrowserBundle\Entity\FileRepository</parameter>
+
+        <parameter key="rs_gaufrette_browser.param_converter.directory.class">rs\GaufretteBrowserBundle\ParamConverter\DirectoryParamConverter</parameter>
+        <parameter key="rs_gaufrette_browser.param_converter.file.class">rs\GaufretteBrowserBundle\ParamConverter\FileParamConverter</parameter>
+
+        <parameter key="rs_gaufrette_browser.event_subscriber.directory.class">rs\GaufretteBrowserBundle\EventSubscriber\DirectorySubscriber</parameter>
+        <parameter key="rs_gaufrette_browser.event_subscriber.file.class">rs\GaufretteBrowserBundle\EventSubscriber\FileSubscriber</parameter>
+
+    </parameters>
+
+    <services>
+        <!-- param-converters -->
+        <service id="rs_gaufrette_browser.param_converter.directory" class="%rs_gaufrette_browser.param_converter.directory.class%">
+            <argument type="service" id="rs_gaufrette_browser.repository.directory" />
+            <tag name="request.param_converter" />
+        </service>
+        <service id="rs_gaufrette_browser.param_converter.file" class="%rs_gaufrette_browser.param_converter.file.class%" public="false">
+            <argument type="service" id="rs_gaufrette_browser.repository.file" />
+            <tag name="request.param_converter" />
+        </service>
+
+        <!-- repositories -->
+        <service id="rs_gaufrette_browser.repository.directory" class="%rs_gaufrette_browser.repository.directory.class%">
+        </service>
+        <service id="rs_gaufrette_browser.repository.file" class="%rs_gaufrette_browser.repository.file.class%">
+        </service>
+
+        <!-- event-subscriber -->
+        <service id="rs_gaufrette_browser.event_subscriber.directory" class="%rs_gaufrette_browser.event_subscriber.directory.class%">
+            <argument type="service" id="rs_gaufrette_browser.repository.directory" />
+            <argument type="service" id="rs_gaufrette_browser.repository.file" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+        <service id="rs_gaufrette_browser.event_subscriber.file" class="%rs_gaufrette_browser.event_subscriber.file.class%">
+            <argument type="service" id="rs_gaufrette_browser.repository.directory" />
+            <argument type="service" id="rs_gaufrette_browser.repository.file" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+    </services>
+</container>

@@ -1,0 +1,6 @@
+[
+    {
+        "file_pattern": "\/\\.(jpg|gif|jpeg|png)$\/",
+        "filesystem": "default"
+    }
+]

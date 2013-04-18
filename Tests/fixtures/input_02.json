@@ -1,0 +1,13 @@
+[
+    {
+        "file_pattern": "\/\\.(jpg|gif|jpeg|png)$\/",
+        "filesystem": "default",
+        "file_class": "\\stdClass"
+    },
+    {
+        "file_pattern": "",
+        "filesystem": "foo",
+        "file_class": "rs\\GaufretteBrowserBundle\\Entity\\File",
+        "directory_class": "rs\\GaufretteBrowserBundle\\Entity\\Directory"
+    }
+]
