@@ -89,7 +89,8 @@ abstract class GaufretteRepository implements ObjectRepository
             }
         }
 
-        if ($orderBy) {
+        //TODO fix orderBy
+        /*if ($orderBy) {
             $elements->getIterator()->uasort(function($a, $b) use ($orderBy){
                 $orderBy = array_pop(array_keys($orderBy));
                 $fn = 'get'.ucfirst($orderBy);
@@ -101,7 +102,7 @@ abstract class GaufretteRepository implements ObjectRepository
 
                 return $a->$fn() > $b->$fn();
             });
-        }
+        }*/
 
         return $elements;
     }
