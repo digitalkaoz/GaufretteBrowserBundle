@@ -13,7 +13,7 @@ abstract class BaseController extends Controller
      */
     protected function getFilesystem()
     {
-        return $this->get('knp_gaufrette.filesystem_map')->get($this->container->getParameter('rs_gaufrette_browser.filesystem'));
+        return $this->get($this->container->getParameter('rs_gaufrette_browser.filesystem'));
     }
 
     /**
