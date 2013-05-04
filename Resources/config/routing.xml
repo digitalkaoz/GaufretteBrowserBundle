@@ -10,7 +10,7 @@
 
     <route id="rs_gaufrette_browser_directory_show" pattern="/{slug}">
         <default key="_controller">rsGaufretteBrowserBundle:Directory:show</default>
-        <requirement key="slug">[a-zA-Z0-9_\/]+</requirement>
+        <requirement key="slug">[a-zA-Z0-9_\-\/]+</requirement>
     </route>
 
     <route id="rs_gaufrette_browser_file_show" pattern="/{slug}">
