@@ -18,6 +18,8 @@ class FileRepositoryTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->adapter = $this->getMock('Gaufrette\Adapter');
+        $this->eventDispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+        $this->eventDispatcher->expects($this->any())->method('dispatch')->will($this->returnArgument(1));
         $this->fs = $this->getMockBuilder('Gaufrette\Filesystem')
             ->disableOriginalConstructor()
             ->setMethods(array('has','get', 'getAdapter','listKeys'))
@@ -25,7 +27,7 @@ class FileRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $this->fs->expects($this->any())->method('getAdapter')->will($this->returnValue($this->adapter));
         $this->gaufretteFile = new File('foo', $this->fs);
-        $this->repo = new FileRepository($this->fs, self::CLS);
+        $this->repo = new FileRepository($this->eventDispatcher, $this->fs, self::CLS);
     }
 
     public function testGetClassName()

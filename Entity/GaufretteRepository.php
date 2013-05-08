@@ -7,6 +7,7 @@ use Doctrine\Common\Persistence\ObjectRepository;
 use Gaufrette\Filesystem;
 use Gaufrette\File;
 use Knp\Bundle\GaufretteBundle\FilesystemMap;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @todo dependency to ObjectRepository isnt nice
@@ -21,11 +22,20 @@ abstract class GaufretteRepository implements ObjectRepository
 
     protected $class;
 
-    public function __construct(Filesystem $filesystem, $class)
+    /**
+     * @var EventDispatcherInterface
+     */
+    protected $eventDispatcher;
+
+
+    public function __construct(EventDispatcherInterface $dispatcher, Filesystem $filesystem, $class)
     {
+        $this->eventDispatcher = $dispatcher;
         $this->filesystem = $filesystem;
         $this->class = $class;
     }
+
+    abstract protected function invokeEvent($elements);
 
     /**
      * Finds all objects in the repository.
@@ -41,7 +51,7 @@ abstract class GaufretteRepository implements ObjectRepository
             $elements->set($element, $this->createObject($this->filesystem->get($element)));
         }
 
-        return $elements;
+        return $this->invokeEvent($elements);
     }
 
     /**
@@ -50,13 +60,17 @@ abstract class GaufretteRepository implements ObjectRepository
      */
     public function find($key)
     {
+        $element = null;
+
         if ($this->filesystem->has($key)) {
             if ('dirs' == $this->getKey() && $this->filesystem->getAdapter()->isDirectory($key)) {
-                return $this->createObject($this->filesystem->get($key));
+                $element = $this->createObject($this->filesystem->get($key));
             } elseif ('keys' == $this->getKey() && !$this->filesystem->getAdapter()->isDirectory($key)) {
-                return $this->createObject($this->filesystem->get($key));
+                $element = $this->createObject($this->filesystem->get($key));
             }
         }
+
+        return $this->invokeEvent($element);
     }
 
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
@@ -104,7 +118,7 @@ abstract class GaufretteRepository implements ObjectRepository
             });
         }*/
 
-        return $elements;
+        return $this->invokeEvent($elements);
     }
 
     /**
@@ -134,7 +148,7 @@ abstract class GaufretteRepository implements ObjectRepository
                 continue;
             }
 
-            return $this->createObject($element);
+            return $this->invokeEvent($this->createObject($element));
         }
     }
 

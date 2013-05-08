@@ -37,12 +37,13 @@ class DirectorySubscriber implements EventSubscriberInterface
     {
         return array(
             GaufretteBrowserEvents::DIRECTORY_INDEX => array(
-                array('setRelations', -255),
                 array('setIndexVariables')
             ),
             GaufretteBrowserEvents::DIRECTORY_SHOW => array(
-                array('setRelations', -255),
                 array('setShowVariables')
+            ),
+            GaufretteBrowserEvents::DIRECTORY_FETCH => array(
+                array('setRelations', -255)
             )
         );
     }

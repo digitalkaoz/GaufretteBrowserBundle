@@ -39,9 +39,10 @@ class DirectorySubscriberTest extends \PHPUnit_Framework_TestCase
         $events = $this->subscriber->getSubscribedEvents();
 
         $this->assertInternalType('array', $events);
-        $this->assertCount(2, $events);
+        $this->assertCount(3, $events);
         $this->assertArrayHasKey(GaufretteBrowserEvents::DIRECTORY_INDEX, $events);
         $this->assertArrayHasKey(GaufretteBrowserEvents::DIRECTORY_SHOW, $events);
+        $this->assertArrayHasKey(GaufretteBrowserEvents::DIRECTORY_FETCH, $events);
     }
 
     public function testSetRelations()

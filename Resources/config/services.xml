@@ -30,8 +30,10 @@
 
         <!-- repositories -->
         <service id="rs_gaufrette_browser.repository.directory" class="%rs_gaufrette_browser.repository.directory.class%">
+            <argument type="service" id="event_dispatcher" />
         </service>
         <service id="rs_gaufrette_browser.repository.file" class="%rs_gaufrette_browser.repository.file.class%">
+            <argument type="service" id="event_dispatcher" />
         </service>
 
         <!-- event-subscriber -->

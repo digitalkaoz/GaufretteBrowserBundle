@@ -39,8 +39,9 @@ class FileSubscriberTest extends \PHPUnit_Framework_TestCase
         $events = $this->subscriber->getSubscribedEvents();
 
         $this->assertInternalType('array', $events);
-        $this->assertCount(1, $events);
+        $this->assertCount(2, $events);
         $this->assertArrayHasKey(GaufretteBrowserEvents::FILE_SHOW, $events);
+        $this->assertArrayHasKey(GaufretteBrowserEvents::FILE_FETCH, $events);
     }
 
     public function testSetRelations()
