@@ -36,6 +36,7 @@ class FileSubscriber implements EventSubscriberInterface
     {
         return array(
             GaufretteBrowserEvents::FILE_SHOW => array(
+                array('setRelations', -255),
                 array('setShowVariables')
             ),
             GaufretteBrowserEvents::FILE_FETCH => array(
