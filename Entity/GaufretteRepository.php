@@ -3,6 +3,7 @@
 namespace rs\GaufretteBrowserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Expr\ClosureExpressionVisitor;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Gaufrette\Filesystem;
 use Gaufrette\File;
@@ -73,6 +74,9 @@ abstract class GaufretteRepository implements ObjectRepository
         return $this->invokeEvent($element);
     }
 
+    /**
+     * @return ArrayCollection
+     */
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
         if (isset($criteria['prefix'])) {
@@ -97,26 +101,23 @@ abstract class GaufretteRepository implements ObjectRepository
             }
 
             $elements->add($this->createObject($element));
-
-            if ($limit && $elements->count() == $limit) {
-                break;
-            }
         }
 
-        //TODO fix orderBy
-        /*if ($orderBy) {
-            $elements->getIterator()->uasort(function($a, $b) use ($orderBy){
-                $orderBy = array_pop(array_keys($orderBy));
-                $fn = 'get'.ucfirst($orderBy);
+        if ($orderBy) {
+            $next = null;
+            foreach (array_reverse($orderBy) as $field => $ordering) {
+                $next = ClosureExpressionVisitor::sortByField($field, $ordering == 'DESC' ? -1 : 1, $next);
+            }
 
-                if ($a->$fn() == $b->$fn()) {
+            $arrayElements = $elements->toArray();
+            usort($arrayElements, $next);
 
-                    return 0;
-                }
+            $elements = new ArrayCollection($arrayElements);
+        }
 
-                return $a->$fn() > $b->$fn();
-            });
-        }*/
+        if ($limit) {
+            $elements = $elements->slice(0, $limit);
+        }
 
         return $this->invokeEvent($elements);
     }

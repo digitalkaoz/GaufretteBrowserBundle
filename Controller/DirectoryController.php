@@ -12,7 +12,7 @@ class DirectoryController extends BaseController
 {
     public function indexAction()
     {
-        $event = new DirectoryControllerEvent($this->getDirectoryRepository()->findBy(array('prefix'=>'')));
+        $event = new DirectoryControllerEvent($this->getDirectoryRepository()->findBy(array('prefix'=>''), array('mtime'=>'DESC')));
         $event = $this->get('event_dispatcher')->dispatch(GaufretteBrowserEvents::DIRECTORY_INDEX, $event);
 
         return $this->render('rsGaufretteBrowserBundle:Directory:index.html.twig', $event->getTemplateData());
