@@ -64,7 +64,7 @@ class DirectorySubscriber implements EventSubscriberInterface
             $folder->setFiles($this->fileRepository->findBy(array(
                 'prefix' => $folder->getName() . DIRECTORY_SEPARATOR,
                 'suffix' => $this->filePattern
-            ),array('mtime'=>'DESC')));
+            ),array('mtime'=>'ASC')));
         }
 
     }
