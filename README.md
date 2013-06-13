@@ -2,6 +2,8 @@ Gaufrette Browser
 =================
 
 [![Build Status](https://travis-ci.org/digitalkaoz/GaufretteBrowserBundle.png)](https://travis-ci.org/digitalkaoz/GaufretteBrowserBundle)
+[![Total Downloads](https://poser.pugx.org/digitalkaoz/gaufrette-browser-bundle/downloads.png)](https://packagist.org/packages/digitalkaoz/gaufrette-browser-bundle)
+[![Latest Stable Version](https://poser.pugx.org/digitalkaoz/gaufrette-browser-bundle/v/stable.png)](https://packagist.org/packages/digitalkaoz/gaufrette-browser-bundle)
 
 [![knpbundles.com](http://knpbundles.com/digitalkaoz/GaufretteBrowserBundle/badge-short)](http://knpbundles.com/digitalkaoz/GaufretteBrowserBundle)
 
