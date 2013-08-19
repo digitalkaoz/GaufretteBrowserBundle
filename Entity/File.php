@@ -40,6 +40,7 @@ class File
 
     public function getSlug()
     {
+        //TODO replace with urlizer
         return str_replace(' ', '_', strtolower($this->info->getName()));
     }
 
@@ -51,5 +52,10 @@ class File
     public function getDirectory()
     {
         return $this->directory;
+    }
+
+    public function getExtension()
+    {
+        return pathinfo($this->info->getName(), PATHINFO_EXTENSION);
     }
 }
