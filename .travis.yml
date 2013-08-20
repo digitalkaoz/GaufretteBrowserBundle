@@ -14,5 +14,5 @@ env:
 before_script:
   - composer require symfony/framework-bundle:${SYMFONY_VERSION} --no-update
   - composer update --dev
-  
+
 script: phpunit --coverage-text
