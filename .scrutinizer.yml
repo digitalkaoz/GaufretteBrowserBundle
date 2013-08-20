@@ -24,12 +24,15 @@ tools:
         command: phpcpd
         min_lines: 5
         min_tokens: 70
-        excluded_dirs: {  }
+        excluded_dirs:
+            - 'Tests/*'
+            - 'vendor'
         names:
             - '*.php'
     php_pdepend:
         excluded_dirs:
-            - vendor
+            - 'vendor'
+            - 'Tests'
         enabled: true
         command: pdepend
         configuration_file: null
