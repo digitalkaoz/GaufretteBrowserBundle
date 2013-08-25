@@ -8,7 +8,7 @@ Gaufrette Browser
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/badges/quality-score.png?s=c23fb208a0ee64cfdb844c8794973352c9417169)](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9d3914c2-0636-4d7c-a560-dfea413baa93/small.png)](https://insight.sensiolabs.com/projects/9d3914c2-0636-4d7c-a560-dfea413baa93)
 
-This Bundle allows you to browse a Gaufrette Filesystem.
+This Bundle allows you to browse a Gaufrette Filesystem like a Doctrine Connection.
 It tries to wrap Doctrine ObjectRepositories and Entities around Gaufrette Files.
 
 Installation
