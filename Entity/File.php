@@ -3,7 +3,6 @@
 namespace rs\GaufretteBrowserBundle\Entity;
 
 use Gaufrette\File as BaseFile;
-use Symfony\Component\Finder\SplFileInfo;
 
 class File
 {
@@ -25,7 +24,6 @@ class File
     public function __call($fn, $args)
     {
         if (method_exists($this->info, $fn) ) {
-
             return $this->info->$fn($args);
         }
 

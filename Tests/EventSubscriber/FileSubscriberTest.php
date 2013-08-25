@@ -2,7 +2,6 @@
 
 namespace rs\GaufretteBrowserBundle\Tests\EventSubscriber;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use rs\GaufretteBrowserBundle\Event\FileControllerEvent;
 use rs\GaufretteBrowserBundle\Event\GaufretteBrowserEvents;
 use rs\GaufretteBrowserBundle\EventSubscriber\FileSubscriber;

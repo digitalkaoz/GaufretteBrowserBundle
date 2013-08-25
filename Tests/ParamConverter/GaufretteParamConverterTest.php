@@ -84,7 +84,6 @@ class GaufretteParamConverterTest extends \PHPUnit_Framework_TestCase
         $directory = new Directory($this->getMockBuilder('Gaufrette\File')->disableOriginalConstructor()->getMock());
         $file = new File($this->getMockBuilder('Gaufrette\File')->disableOriginalConstructor()->getMock());
 
-
         return array(
             array(new DirectoryParamConverter($dr, 'rs\GaufretteBrowserBundle\Entity\Directory'), $dr, $directory),
             array(new FileParamConverter($fr, 'rs\GaufretteBrowserBundle\Entity\File'), $fr, $file),

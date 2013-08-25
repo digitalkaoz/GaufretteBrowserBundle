@@ -7,7 +7,6 @@ use rs\GaufretteBrowserBundle\Entity\Directory;
 use rs\GaufretteBrowserBundle\Entity\DirectoryRepository;
 use rs\GaufretteBrowserBundle\Entity\File;
 use rs\GaufretteBrowserBundle\Entity\FileRepository;
-use rs\GaufretteBrowserBundle\Event\DirectoryControllerEvent;
 use rs\GaufretteBrowserBundle\Event\FileControllerEvent;
 use rs\GaufretteBrowserBundle\Event\GaufretteBrowserEvents;
 

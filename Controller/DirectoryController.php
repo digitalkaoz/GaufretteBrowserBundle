@@ -2,9 +2,6 @@
 
 namespace rs\GaufretteBrowserBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 use rs\GaufretteBrowserBundle\Event\GaufretteBrowserEvents;
 use rs\GaufretteBrowserBundle\Event\DirectoryControllerEvent;
 

@@ -2,7 +2,6 @@
 
 namespace rs\GaufretteBrowserBundle\Tests\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use rs\GaufretteBrowserBundle\Entity\Directory;
 use rs\GaufretteBrowserBundle\Entity\File;
 

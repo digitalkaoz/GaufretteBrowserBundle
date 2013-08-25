@@ -64,7 +64,7 @@ abstract class GaufretteParamConverter implements ParamConverterInterface
             return false;
         }
 
-        if(!array_key_exists('id', $configuration->getOptions())) {
+        if (!array_key_exists('id', $configuration->getOptions())) {
             return false;
         }
 

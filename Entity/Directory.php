@@ -3,7 +3,6 @@ namespace rs\GaufretteBrowserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Gaufrette\File as GaufretteFile;
-use Symfony\Component\Finder\SplFileInfo;
 
 class Directory
 {
@@ -37,7 +36,6 @@ class Directory
     public function __call($fn, $args)
     {
         if (method_exists($this->info, $fn)) {
-
             return $this->info->$fn($args);
         }
 

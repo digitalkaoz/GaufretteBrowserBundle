@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\Expr\ClosureExpressionVisitor;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Gaufrette\Filesystem;
 use Gaufrette\File;
-use Knp\Bundle\GaufretteBundle\FilesystemMap;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -27,7 +26,6 @@ abstract class GaufretteRepository implements ObjectRepository
      * @var EventDispatcherInterface
      */
     protected $eventDispatcher;
-
 
     public function __construct(EventDispatcherInterface $dispatcher, Filesystem $filesystem, $class)
     {
@@ -56,7 +54,7 @@ abstract class GaufretteRepository implements ObjectRepository
     }
 
     /**
-     * @param string $key
+     * @param  string         $key
      * @return Directory|File
      */
     public function find($key)
@@ -96,7 +94,7 @@ abstract class GaufretteRepository implements ObjectRepository
             }
 
             //check suffix
-            if(isset($criteria['suffix']) && !preg_match($criteria['suffix'], strtolower($element->getName()))) {
+            if (isset($criteria['suffix']) && !preg_match($criteria['suffix'], strtolower($element->getName()))) {
                 continue;
             }
 
@@ -125,7 +123,7 @@ abstract class GaufretteRepository implements ObjectRepository
     /**
      * Finds a single object by a set of criteria.
      *
-     * @param array $criteria
+     * @param  array          $criteria
      * @return File|Directory The object.
      */
     public function findOneBy(array $criteria)
@@ -145,7 +143,7 @@ abstract class GaufretteRepository implements ObjectRepository
             }
 
             //check suffix
-            if(isset($criteria['suffix']) && !preg_match($criteria['suffix'], strtolower($element->getKey()))) {
+            if (isset($criteria['suffix']) && !preg_match($criteria['suffix'], strtolower($element->getKey()))) {
                 continue;
             }
 
