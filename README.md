@@ -4,9 +4,7 @@ Gaufrette Browser
 [![Build Status](https://travis-ci.org/digitalkaoz/GaufretteBrowserBundle.png)](https://travis-ci.org/digitalkaoz/GaufretteBrowserBundle)
 [![Total Downloads](https://poser.pugx.org/digitalkaoz/gaufrette-browser-bundle/downloads.png)](https://packagist.org/packages/digitalkaoz/gaufrette-browser-bundle)
 [![Latest Stable Version](https://poser.pugx.org/digitalkaoz/gaufrette-browser-bundle/v/stable.png)](https://packagist.org/packages/digitalkaoz/gaufrette-browser-bundle)
-
-[![knpbundles.com](http://knpbundles.com/digitalkaoz/GaufretteBrowserBundle/badge-short)](http://knpbundles.com/digitalkaoz/GaufretteBrowserBundle)
-[![Scrutinizer Continuous Inspections](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/badges/general.png?s=550a9cbaffc5ebb09d923892fcf5d24ea27498e1)](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/9d3914c2-0636-4d7c-a560-dfea413baa93/small.png)](https://insight.sensiolabs.com/projects/9d3914c2-0636-4d7c-a560-dfea413baa93)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/badges/quality-score.png?s=c23fb208a0ee64cfdb844c8794973352c9417169)](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/)
 [![Code Coverage](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/badges/coverage.png?s=5871e797862c67c2efbeaf0c9d3d9d1115d94a1b)](https://scrutinizer-ci.com/g/digitalkaoz/GaufretteBrowserBundle/)
 

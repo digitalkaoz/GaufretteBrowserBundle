@@ -2,11 +2,6 @@
 
 namespace rs\GaufretteBrowserBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use rs\GaufretteBrowserBundle\Event\FileControllerEvent;
-use rs\GaufretteBrowserBundle\Event\GaufretteBrowserEvents;
-
 class FileRepository extends GaufretteRepository
 {
 
