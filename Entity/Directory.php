@@ -3,6 +3,7 @@ namespace rs\GaufretteBrowserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Gaufrette\File as GaufretteFile;
+use Ferrandini\Urlizer;
 
 class Directory
 {
@@ -50,7 +51,7 @@ class Directory
 
     public function getSlug()
     {
-        return str_replace(' ', '_', strtolower($this->info->getName()));
+        return Urlizer::urlize($this->info->getName());
     }
 
     public function setFiles(ArrayCollection $collection)

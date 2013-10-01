@@ -40,7 +40,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     {
         $this->gaufretteFile->expects($this->atLeastOnce())->method('getName')->will($this->returnValue('foo/ bar.png'));
 
-        $this->assertEquals('foo/_bar.png', $this->file->getSlug());
+        $this->assertEquals('foo-bar.png', $this->file->getSlug());
     }
 
     public function testCallInterception()

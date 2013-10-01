@@ -55,18 +55,18 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 
     public function testSlug()
     {
-        $this->gaufretteFile->expects($this->atLeastOnce())->method('getName')->will($this->returnValue('foo/ bar.png'));
+        $this->gaufretteFile->expects($this->atLeastOnce())->method('getName')->will($this->returnValue('foo/ bar'));
 
-        $this->assertEquals('foo/_bar.png', $this->directory->getSlug());
+        $this->assertEquals('foo-bar', $this->directory->getSlug());
     }
 
     public function testCallInterception()
     {
-        $this->gaufretteFile->expects($this->atLeastOnce())->method('getName')->will($this->returnValue('foo/bar.png'));
+        $this->gaufretteFile->expects($this->atLeastOnce())->method('getName')->will($this->returnValue('foo/bar'));
         $this->gaufretteFile->expects($this->atLeastOnce())->method('getSize')->will($this->returnValue(1337));
         $this->gaufretteFile->expects($this->atLeastOnce())->method('setName');
 
-        $this->assertEquals('foo/bar.png', $this->directory->name());
+        $this->assertEquals('foo/bar', $this->directory->name());
         $this->assertEquals(1337, $this->directory->getSize());
         $this->directory->setName('foo');
     }

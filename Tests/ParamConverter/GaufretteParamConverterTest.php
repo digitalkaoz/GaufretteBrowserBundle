@@ -1,14 +1,14 @@
 <?php
 namespace rs\GaufretteBrowserBundle\Tests\ParamConverter;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpFoundation\Request;
 use rs\GaufretteBrowserBundle\Entity\Directory;
 use rs\GaufretteBrowserBundle\Entity\File;
 use rs\GaufretteBrowserBundle\Entity\GaufretteRepository;
 use rs\GaufretteBrowserBundle\ParamConverter\DirectoryParamConverter;
 use rs\GaufretteBrowserBundle\ParamConverter\FileParamConverter;
 use rs\GaufretteBrowserBundle\ParamConverter\GaufretteParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @covers rs\GaufretteBrowserBundle\ParamConverter\DirectoryParamConverter<extended>
@@ -30,7 +30,7 @@ class GaufretteParamConverterTest extends \PHPUnit_Framework_TestCase
         $config->setClass(get_class($object));
         $this->assertFalse($converter->supports($config));
 
-        $config->setOptions(array('id'=>'slug'));
+        $config->setOptions(array('id' => 'slug'));
         $this->assertTrue($converter->supports($config));
     }
 
@@ -41,12 +41,12 @@ class GaufretteParamConverterTest extends \PHPUnit_Framework_TestCase
     {
         $config = new ParamConverter(array());
         $config->setClass(get_class($object));
-        $config->setOptions(array('id'=>'slug'));
+        $config->setOptions(array('id' => 'slug'));
         $config->setName('foo');
 
-        $request = new Request(array('slug'=>'foo/bar'));
+        $request = new Request(array('slug' => 'foo-bar'));
 
-        $repository->expects($this->atLeastOnce())->method('find')->with('foo/bar')->will($this->returnValue($object));
+        $repository->expects($this->atLeastOnce())->method('findOneBy')->with(array('slug' => 'foo-bar'))->will($this->returnValue($object));
 
         $this->assertTrue($converter->apply($request, $config));
         $this->assertSame($object, $request->attributes->get('foo'));
@@ -59,10 +59,10 @@ class GaufretteParamConverterTest extends \PHPUnit_Framework_TestCase
     {
         $config = new ParamConverter(array());
         $config->setClass(get_class($object));
-        $config->setOptions(array('id'=>'slug'));
+        $config->setOptions(array('id' => 'slug'));
         $config->setName('foo');
 
-        $request = new Request(array('slug'=>'foo/bar'));
+        $request = new Request(array('slug' => 'foo/bar'));
 
         $repository->expects($this->atLeastOnce())->method('find')->with('foo/bar')->will($this->returnValue(null));
 
@@ -74,12 +74,10 @@ class GaufretteParamConverterTest extends \PHPUnit_Framework_TestCase
     {
         $dr = $this->getMockBuilder('rs\GaufretteBrowserBundle\Entity\DirectoryRepository')
             ->disableOriginalConstructor()
-            ->getMock()
-        ;
+            ->getMock();
         $fr = $this->getMockBuilder('rs\GaufretteBrowserBundle\Entity\DirectoryRepository')
             ->disableOriginalConstructor()
-            ->getMock()
-        ;
+            ->getMock();
 
         $directory = new Directory($this->getMockBuilder('Gaufrette\File')->disableOriginalConstructor()->getMock());
         $file = new File($this->getMockBuilder('Gaufrette\File')->disableOriginalConstructor()->getMock());

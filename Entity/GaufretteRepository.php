@@ -136,6 +136,7 @@ abstract class GaufretteRepository implements ObjectRepository
 
         foreach ($keys[$this->getKey()] as $element) {
             $element = $this->filesystem->get($element);
+            $object = $this->createObject($element);
 
             //check prefix
             if (isset($criteria['prefix']) && $criteria['prefix'].basename($element->getKey()) !== $element->getKey()) {
@@ -147,7 +148,11 @@ abstract class GaufretteRepository implements ObjectRepository
                 continue;
             }
 
-            return $this->invokeEvent($this->createObject($element));
+            if (isset($criteria['slug']) && $object->getSlug() != $criteria['slug']) {
+                continue;
+            }
+
+            return $this->invokeEvent($object);
         }
     }
 

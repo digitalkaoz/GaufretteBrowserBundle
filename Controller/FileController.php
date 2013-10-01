@@ -9,13 +9,13 @@ class FileController extends BaseController
 {
     public function showAction($slug)
     {
-        if (!$file = $this->getFileRepository()->find($slug)) {
-            throw $this->createNotFoundException('file not found '.$slug);
+        if (!$file = $this->getFileRepository()->findOneBy(array('slug' => $slug))) {
+            throw $this->createNotFoundException('File not found "' . $slug . '"');
         }
 
         $event = new FileControllerEvent($file);
         $event = $this->get('event_dispatcher')->dispatch(GaufretteBrowserEvents::FILE_SHOW, $event);
 
-        return $this->render('rsGaufretteBrowserBundle:File:show.html.twig',$event->getTemplateData());
+        return $this->render('rsGaufretteBrowserBundle:File:show.html.twig', $event->getTemplateData());
     }
 }

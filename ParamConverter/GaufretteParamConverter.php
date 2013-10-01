@@ -1,11 +1,11 @@
 <?php
 namespace rs\GaufretteBrowserBundle\ParamConverter;
 
+use rs\GaufretteBrowserBundle\Entity\GaufretteRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
-use rs\GaufretteBrowserBundle\Entity\GaufretteRepository;
 
 abstract class GaufretteParamConverter implements ParamConverterInterface
 {
@@ -33,10 +33,10 @@ abstract class GaufretteParamConverter implements ParamConverterInterface
     public function apply(Request $request, ConfigurationInterface $configuration)
     {
         /** @var $configuration ParamConverter */
-        $name    = $configuration->getName();
+        $name = $configuration->getName();
         $options = $configuration->getOptions();
 
-        $object = $this->repository->find($request->get($options['id']));
+        $object = $this->repository->findOneBy(array('slug' => $request->get($options['id'])));
 
         if ($object) {
             $request->attributes->set($name, $object);
