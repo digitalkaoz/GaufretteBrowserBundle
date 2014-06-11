@@ -7,15 +7,6 @@ php:
   - hhvm
 
 matrix:
-  include:
-    - php: 5.3
-      env: SYMFONY_VERSION=2.1.*
-    - php: 5.3
-      env: SYMFONY_VERSION=2.2.*
-    - php: 5.3
-      env: SYMFONY_VERSION=2.3.*
-    - php: 5.3
-      env: SYMFONY_VERSION=2.4.*
   allow_failures:
       - php: hhvm
 env:
