@@ -7,6 +7,7 @@ use rs\GaufretteBrowserBundle\Event\FileControllerEvent;
 
 /**
  * @covers rs\GaufretteBrowserBundle\Event\FileControllerEvent
+ * @covers rs\GaufretteBrowserBundle\Entity\File
  */
 class FileControllerEventTest extends \PHPUnit_Framework_TestCase
 {

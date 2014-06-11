@@ -5,6 +5,7 @@ use rs\GaufretteBrowserBundle\Entity\FileRepository;
 use Gaufrette\File;
 /**
  * @covers rs\GaufretteBrowserBundle\Entity\FileRepository<extended>
+ * @covers rs\GaufretteBrowserBundle\Entity\File
  */
 class FileRepositoryTest extends \PHPUnit_Framework_TestCase
 {

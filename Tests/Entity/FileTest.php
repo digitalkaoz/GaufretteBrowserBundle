@@ -7,6 +7,7 @@ use rs\GaufretteBrowserBundle\Entity\File;
 
 /**
  * @covers rs\GaufretteBrowserBundle\Entity\File
+ * @covers rs\GaufretteBrowserBundle\Entity\Directory
  */
 class FileTest extends \PHPUnit_Framework_TestCase
 {

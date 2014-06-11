@@ -9,6 +9,7 @@ use rs\GaufretteBrowserBundle\EventSubscriber\DirectorySubscriber;
 
 /**
  * @covers rs\GaufretteBrowserBundle\EventSubscriber\DirectorySubscriber
+ * @covers rs\GaufretteBrowserBundle\Event\DirectoryControllerEvent
  */
 class DirectorySubscriberTest extends \PHPUnit_Framework_TestCase
 {

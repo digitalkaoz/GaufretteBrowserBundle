@@ -7,6 +7,7 @@ use rs\GaufretteBrowserBundle\Event\DirectoryControllerEvent;
 
 /**
  * @covers rs\GaufretteBrowserBundle\Event\DirectoryControllerEvent
+ * @covers rs\GaufretteBrowserBundle\Entity\Directory
  */
 class DirectoryControllerEventTest extends \PHPUnit_Framework_TestCase
 {

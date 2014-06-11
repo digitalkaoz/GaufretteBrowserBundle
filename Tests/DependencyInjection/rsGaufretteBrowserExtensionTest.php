@@ -7,6 +7,7 @@ use rs\GaufretteBrowserBundle\DependencyInjection\rsGaufretteBrowserExtension;
 
 /**
  * @covers rs\GaufretteBrowserBundle\DependencyInjection\rsGaufretteBrowserExtension
+ * @covers rs\GaufretteBrowserBundle\DependencyInjection\Configuration
  */
 class rsGaufretteBrowserExtensionTest extends \PHPUnit_Framework_TestCase
 {

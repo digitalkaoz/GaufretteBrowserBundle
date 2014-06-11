@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->defaultValue('rs\GaufretteBrowserBundle\Entity\File')
                     ->validate()
-                        ->ifTrue(function($v) {
+                        ->ifTrue(function ($v) {
                             return !class_exists($v);
                         })
                         ->thenInvalid('file_class couldnt be autoloaded')
@@ -37,7 +37,7 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->defaultValue('rs\GaufretteBrowserBundle\Entity\Directory')
                     ->validate()
-                        ->ifTrue(function($v) {
+                        ->ifTrue(function ($v) {
                             return !class_exists($v);
                         })
                         ->thenInvalid('directory_class couldnt be autoloaded')

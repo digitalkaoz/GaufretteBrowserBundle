@@ -8,6 +8,7 @@ use rs\GaufretteBrowserBundle\EventSubscriber\FileSubscriber;
 
 /**
  * @covers rs\GaufretteBrowserBundle\EventSubscriber\FileSubscriber
+ * @covers rs\GaufretteBrowserBundle\Event\FileControllerEvent
  */
 class FileSubscriberTest extends \PHPUnit_Framework_TestCase
 {
