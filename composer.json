@@ -36,7 +36,5 @@
         "psr-4": {
             "rs\\GaufretteBrowserBundle\\Tests\\": "Tests"
         }
-    },
-
-    "target-dir": "rs/GaufretteBrowserBundle"
+    }
 }
