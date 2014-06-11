@@ -20,7 +20,7 @@
     },
 
     "require-dev": {
-        "sensio/framework-extra-bundle": "~2.0, <3.0"
+        "sensio/framework-extra-bundle": "~3.0"
     },
 
     "suggest": {
@@ -28,8 +28,13 @@
     },
 
     "autoload": {
-        "psr-0": {
-            "rs\\GaufretteBrowserBundle": ""
+        "psr-4": {
+            "rs\\GaufretteBrowserBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "rs\\GaufretteBrowserBundle\\Tests\\": "Tests"
         }
     },
 

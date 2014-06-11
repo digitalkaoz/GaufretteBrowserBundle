@@ -2,7 +2,6 @@
 namespace rs\GaufretteBrowserBundle\ParamConverter;
 
 use rs\GaufretteBrowserBundle\Entity\GaufretteRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,14 +22,9 @@ abstract class GaufretteParamConverter implements ParamConverterInterface
     }
 
     /**
-     * Stores the object in the request.
-     *
-     * @param Request                $request       The request
-     * @param ConfigurationInterface $configuration Contains the name, class and options of the object
-     *
-     * @return boolean True if the object has been successfully set, else false
+     * {@inheritDoc}
      */
-    public function apply(Request $request, ConfigurationInterface $configuration)
+    public function apply(Request $request, ParamConverter $configuration)
     {
         /** @var $configuration ParamConverter */
         $name = $configuration->getName();
@@ -48,18 +42,10 @@ abstract class GaufretteParamConverter implements ParamConverterInterface
     }
 
     /**
-     * Checks if the object is supported.
-     *
-     * @param ConfigurationInterface $configuration Should be an instance of ParamConverter
-     *
-     * @return boolean True if the object is supported, else false
+     * {@inheritDoc}
      */
-    public function supports(ConfigurationInterface $configuration)
+    public function supports(ParamConverter $configuration)
     {
-        if (!$configuration instanceof ParamConverter) {
-            return false;
-        }
-
         if (null === $configuration->getClass()) {
             return false;
         }

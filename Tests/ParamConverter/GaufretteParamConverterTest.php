@@ -21,10 +21,8 @@ class GaufretteParamConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function testSupports(GaufretteParamConverter $converter, GaufretteRepository $repository, $object)
     {
-        $wrongConfig = $this->getMock('Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface');
         $config = new ParamConverter(array());
 
-        $this->assertFalse($converter->supports($wrongConfig));
         $this->assertFalse($converter->supports($config));
 
         $config->setClass(get_class($object));
