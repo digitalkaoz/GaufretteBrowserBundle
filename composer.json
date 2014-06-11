@@ -20,11 +20,11 @@
     },
 
     "require-dev": {
-        "sensio/framework-extra-bundle": "~2.0"
+        "sensio/framework-extra-bundle": "~2.0, <3.0"
     },
 
     "suggest": {
-        "sensio/framework-extra-bundle": " for using the param-converters for file and directory"
+        "sensio/framework-extra-bundle": "for using the param-converters for file and directory"
     },
 
     "autoload": {
