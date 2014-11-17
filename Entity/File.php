@@ -42,13 +42,24 @@ class File
         return Urlizer::urlize(str_replace('.' . $this->getExtension(), '', $this->info->getName())) . '.' . $this->getExtension();
     }
 
-    public function setDirectory(Directory $directory)
+    /**
+     * @param Directory|\Closure $directory
+     */
+    public function setDirectory($directory)
     {
+        if (!$directory instanceof Directory && !$directory instanceof \Closure) {
+            throw new \InvalidArgumentException('invalid directory');
+        }
+
         $this->directory = $directory;
     }
 
     public function getDirectory()
     {
+        if ($this->directory instanceof \Closure) {
+            $this->directory = $this->directory->__invoke();
+        }
+
         return $this->directory;
     }
 

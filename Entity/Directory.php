@@ -2,6 +2,7 @@
 namespace rs\GaufretteBrowserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Gaufrette\File as GaufretteFile;
 use Ferrandini\Urlizer;
 
@@ -54,11 +55,13 @@ class Directory
         return Urlizer::urlize($this->info->getName());
     }
 
-    public function setFiles(ArrayCollection $collection)
+    /**
+     * @param Collection|\Closure $collection
+     */
+    public function setFiles($collection)
     {
-        foreach ($collection as $file) {
-            /** @var $file File */
-            $file->setDirectory($this);
+        if (!$collection instanceof Collection && !$collection instanceof \Closure) {
+            throw new \InvalidArgumentException('invalid collection');
         }
 
         $this->files = $collection;
@@ -66,14 +69,25 @@ class Directory
 
     public function getFiles()
     {
+        if ($this->files instanceof \Closure) {
+            $this->files = $this->files->__invoke();
+        }
+
+        foreach ($this->files as $file) {
+            /** @var $file File */
+            $file->setDirectory($this);
+        }
+
         return $this->files;
     }
 
-    public function setDirectories(ArrayCollection $collection)
+    /**
+     * @param Collection|\Closure $collection
+     */
+    public function setDirectories($collection)
     {
-        foreach ($collection as $directory) {
-            /** @var $directory Directory */
-            $directory->setParent($this);
+        if (!$collection instanceof Collection && !$collection instanceof \Closure) {
+            throw new \InvalidArgumentException('invalid collection');
         }
 
         $this->directories = $collection;
@@ -81,6 +95,15 @@ class Directory
 
     public function getDirectories()
     {
+        if ($this->directories instanceof \Closure) {
+            $this->directories = $this->directories->__invoke();
+        }
+
+        foreach ($this->directories as $directory) {
+            /** @var $directory Directory */
+            $directory->setParent($this);
+        }
+
         return $this->directories;
     }
 

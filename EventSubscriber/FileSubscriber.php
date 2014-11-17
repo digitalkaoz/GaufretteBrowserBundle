@@ -53,7 +53,9 @@ class FileSubscriber implements EventSubscriberInterface
     {
         foreach ($event->getFiles() as $file) {
             /** @var $file File */
-            $file->setDirectory($this->directoryRepository->find(pathinfo($file->getKey(), PATHINFO_DIRNAME)));
+            $file->setDirectory(function () use ($file) {
+                return $this->directoryRepository->find(pathinfo($file->getKey(), PATHINFO_DIRNAME));
+            });
         }
     }
 

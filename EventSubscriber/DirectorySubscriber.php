@@ -57,14 +57,16 @@ class DirectorySubscriber implements EventSubscriberInterface
     {
         foreach ($event->getDirectories() as $folder) {
             /** @var $folder Directory */
-            $folder->setDirectories($this->directoryRepository->findBy(array(
-                'prefix' => $folder->getName() . DIRECTORY_SEPARATOR,
-            ),array('mtime'=>'DESC')));
+            $folder->setDirectories(function () use ($folder) {
+                return $this->directoryRepository->findBy(array('prefix' => $folder->getName() . DIRECTORY_SEPARATOR,),array('mtime'=>'DESC'));
+            });
 
-            $folder->setFiles($this->fileRepository->findBy(array(
-                'prefix' => $folder->getName() . DIRECTORY_SEPARATOR,
-                'suffix' => $this->filePattern
-            ),array('mtime'=>'ASC')));
+            $folder->setFiles(function () use ($folder) {
+                return $this->fileRepository->findBy(array(
+                    'prefix' => $folder->getName() . DIRECTORY_SEPARATOR,
+                    'suffix' => $this->filePattern
+                ),array('mtime'=>'ASC'));
+            });
         }
 
     }
