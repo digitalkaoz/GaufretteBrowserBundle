@@ -6,7 +6,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Expr\ClosureExpressionVisitor;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Gaufrette\Filesystem;
-use Gaufrette\File;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -156,7 +155,7 @@ abstract class GaufretteRepository implements ObjectRepository
         }
     }
 
-    private function createObject(File $file)
+    private function createObject(\Gaufrette\FileFile $file)
     {
         $class = $this->getClassName();
 
